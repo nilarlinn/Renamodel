@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Modelling portfolio: editorial, commercial and runway work, measurements and booking contacts.">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Nilar Model Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a comp card unfolded into a page. Oversized italic name over a tall lead image, a stats strip in comp-card order, then a filterable book. */
+:root {
+  --paper: #ecebe8;
+  --paper-2: #e2e0dc;
+  --ink: #161515;
+  --ink-soft: #5d5a57;
+  --rule: #c9c6c1;
+  --accent: #7a1e2c;
+  --ph-a: #b9b3ac;
+  --ph-b: #8f8780;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131212; --paper-2: #1c1a1a; --ink: #eeebe6; --ink-soft: #a29d97;
+    --rule: #34302e; --accent: #d0707e; --ph-a: #3a3532; --ph-b: #24201f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #131212; --paper-2: #1c1a1a; --ink: #eeebe6; --ink-soft: #a29d97;
+  --rule: #34302e; --accent: #d0707e; --ph-a: #3a3532; --ph-b: #24201f; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Nav */
+nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+.mark { font-family: var(--display); font-style: italic; font-size: 22px; text-decoration: none; }
+nav.top ul { display: flex; gap: clamp(14px, 3vw, 32px); list-style: none; margin: 0; padding: 0; }
+nav.top ul a { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--ink-soft); }
+nav.top ul a:hover { color: var(--ink); }
+
+/* Placeholder photo */
+.ph { position: relative; background:
+    radial-gradient(ellipse 34% 22% at 50% 30%, color-mix(in srgb, var(--ph-b) 70%, transparent), transparent 70%),
+    radial-gradient(ellipse 46% 60% at 50% 88%, color-mix(in srgb, var(--ph-b) 80%, transparent), transparent 72%),
+    linear-gradient(160deg, var(--ph-a), color-mix(in srgb, var(--ph-a) 60%, var(--ph-b)));
+  overflow: hidden; max-width: 100%; }
+.ph figcaption { position: absolute; left: 12px; bottom: 10px; right: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--paper); text-shadow: 0 1px 2px rgba(0,0,0,.35); display: flex; justify-content: space-between; gap: 8px; }
+
+/* Hero */
+.hero { padding-block: clamp(32px, 6vw, 72px) clamp(40px, 6vw, 80px); }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px); align-items: end; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 18px; }
+.eyebrow b { color: var(--accent); font-weight: 500; }
+h1 { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(76px, 15vw, 196px); line-height: .82; letter-spacing: -.03em; margin: 0; }
+h1 span { display: block; font-style: normal; font-size: .28em; letter-spacing: .32em; text-transform: uppercase; line-height: 1; margin-top: .9em; padding-left: .2em; }
+.lede { max-width: 38ch; color: var(--ink-soft); margin: 28px 0 0; font-size: 17px; }
+.hero .ph { aspect-ratio: 4 / 5; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; padding: 12px 20px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--ink); font-family: var(--body); font-weight: 600; cursor: pointer; background: transparent; color: var(--ink); }
+.btn.solid { background: var(--ink); color: var(--paper); }
+.btn:hover { border-color: var(--accent); }
+.btn.solid:hover { background: var(--accent); color: var(--paper); }
+
+/* Stats strip */
+.stats { border-block: 1px solid var(--ink); }
+.stats .wrap { display: grid; grid-template-columns: repeat(8, 1fr); }
+.stat { padding-block: 20px; border-left: 1px solid var(--rule); padding-inline: 14px; }
+.stat:first-child { border-left: 0; padding-left: 0; }
+.stat dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.stat dd { margin: 4px 0 0; font-family: var(--mono); font-size: 17px; font-variant-numeric: tabular-nums; }
+.stat dd small { display: block; font-size: 12px; color: var(--ink-soft); }
+.units { display: flex; justify-content: flex-end; padding-block: 10px; }
+.units button { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; background: none; border: 0; color: var(--ink-soft); cursor: pointer; padding: 4px 6px; }
+.units button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Sections */
+section { padding-block: clamp(56px, 8vw, 104px); }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(36px, 5vw, 56px); line-height: 1; margin: 0; text-wrap: balance; }
+h2 em { color: var(--accent); }
+
+/* Book */
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filters button { font-family: var(--body); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 14px; border: 1px solid var(--rule); background: transparent; color: var(--ink-soft); cursor: pointer; }
+.filters button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
+.book { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+.book .ph { margin: 0; grid-column: span 4; aspect-ratio: 3 / 4; transition: opacity .3s; }
+.book .ph.wide { grid-column: span 8; aspect-ratio: auto; }
+.book .ph.tall { grid-row: span 2; aspect-ratio: auto; }
+.book .ph[hidden] { display: none !important; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px, 5vw, 72px); }
+.about-grid p { max-width: 62ch; margin: 0 0 16px; }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 24px; margin: 28px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
+.facts dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); padding-top: 3px; }
+.facts dd { margin: 0; }
+.clients { font-family: var(--display); font-style: italic; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.35; margin: 0; text-wrap: balance; }
+.clients span { color: var(--ink-soft); font-style: normal; font-family: var(--mono); font-size: 13px; vertical-align: middle; padding-inline: 6px; }
+
+/* Contact */
+.contact { background: var(--paper-2); }
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 8px; }
+.card-c { border-top: 1px solid var(--ink); padding-top: 16px; min-width: 0; }
+.card-c h3 { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; font-weight: 600; }
+.card-c p { margin: 0; overflow-wrap: anywhere; }
+.card-c .big { font-family: var(--display); font-size: 22px; }
+.copy { margin-top: 10px; font-family: var(--mono); font-size: 11px; background: none; border: 1px solid var(--rule); color: var(--ink); padding: 6px 10px; cursor: pointer; }
+footer { padding-block: 28px; font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .hero-grid, .about-grid { grid-template-columns: 1fr; }
+  .stats .wrap { grid-template-columns: repeat(4, 1fr); }
+  .stat:nth-child(5) { border-left: 0; padding-left: 0; }
+  .stat:nth-child(n+5) { border-top: 1px solid var(--rule); }
+  .book .ph, .book .ph.wide { grid-column: span 6; aspect-ratio: 3 / 4; }
+  .book .ph.tall { grid-row: auto; }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  nav.top ul { display: none; }
+  .stats .wrap { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .book .ph, .book .ph.wide { grid-column: span 12; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  h1 { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { transform: translateY(18px); opacity: .001; } }
+}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top">Nilar</a>
+    <ul>
+      <li><a href="#book">Book</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Model · <b>Available for bookings</b> · Yangon / Bangkok</p>
+      <h1>Nilar<span>Lastname</span></h1>
+      <p class="lede">Editorial, commercial and runway model. Calm in front of the lens, quick to take direction, and at home in both studio and location work.</p>
+      <div class="hero-actions">
+        <a class="btn solid" href="#contact">Book Nilar</a>
+        <a class="btn" href="#book">View portfolio</a>
+      </div>
+    </div>
+    <figure class="ph" style="margin:0"><figcaption><span>Lead image</span><span>4:5 portrait</span></figcaption></figure>
+  </div>
+</header>
+
+<div class="stats" aria-label="Measurements">
+  <dl class="wrap" id="stats">
+    <div class="stat"><dt>Height</dt><dd data-cm="175">175 cm<small>5′9″</small></dd></div>
+    <div class="stat"><dt>Bust</dt><dd data-cm="82">82 cm</dd></div>
+    <div class="stat"><dt>Waist</dt><dd data-cm="61">61 cm</dd></div>
+    <div class="stat"><dt>Hips</dt><dd data-cm="89">89 cm</dd></div>
+    <div class="stat"><dt>Dress</dt><dd>EU 34<small>US 4</small></dd></div>
+    <div class="stat"><dt>Shoe</dt><dd>EU 39<small>US 8.5</small></dd></div>
+    <div class="stat"><dt>Hair</dt><dd>Black</dd></div>
+    <div class="stat"><dt>Eyes</dt><dd>Dark brown</dd></div>
+  </dl>
+</div>
+<div class="wrap units" role="group" aria-label="Units">
+  <button type="button" id="u-cm" aria-pressed="true">cm</button>
+  <button type="button" id="u-in" aria-pressed="false">in</button>
+</div>
+
+<section id="book">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The <em>book</em></h2>
+      <div class="filters" role="group" aria-label="Filter portfolio">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="editorial" aria-pressed="false">Editorial</button>
+        <button type="button" data-f="commercial" aria-pressed="false">Commercial</button>
+        <button type="button" data-f="runway" aria-pressed="false">Runway</button>
+        <button type="button" data-f="digitals" aria-pressed="false">Digitals</button>
+      </div>
+    </div>
+    <div class="book">
+      <figure class="ph tall" data-c="editorial"><figcaption><span>Editorial · 01</span><span>Magazine</span></figcaption></figure>
+      <figure class="ph" data-c="commercial"><figcaption><span>Commercial · 02</span><span>Beauty</span></figcaption></figure>
+      <figure class="ph" data-c="runway"><figcaption><span>Runway · 03</span><span>Show</span></figcaption></figure>
+      <figure class="ph wide" data-c="editorial"><figcaption><span>Editorial · 04</span><span>Landscape spread</span></figcaption></figure>
+      <figure class="ph" data-c="digitals"><figcaption><span>Digitals · 05</span><span>Front, no makeup</span></figcaption></figure>
+      <figure class="ph" data-c="digitals"><figcaption><span>Digitals · 06</span><span>Profile</span></figcaption></figure>
+      <figure class="ph" data-c="commercial"><figcaption><span>Commercial · 07</span><span>Campaign</span></figcaption></figure>
+      <figure class="ph" data-c="runway"><figcaption><span>Runway · 08</span><span>Backstage</span></figcaption></figure>
+      <figure class="ph" data-c="digitals"><figcaption><span>Digitals · 09</span><span>Full length</span></figcaption></figure>
+      <figure class="ph" data-c="editorial"><figcaption><span>Editorial · 10</span><span>Location</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:0">
+  <div class="wrap about-grid">
+    <div>
+      <h2>About</h2>
+      <dl class="facts">
+        <dt>Based</dt><dd>Yangon, Myanmar</dd>
+        <dt>Travels</dt><dd>Bangkok · Singapore · Worldwide</dd>
+        <dt>Languages</dt><dd>Burmese, English</dd>
+        <dt>Passport</dt><dd>Valid, ready to travel</dd>
+      </dl>
+    </div>
+    <div>
+      <p>Write two or three short paragraphs here in your own voice: how you started modelling, the kind of work you love, and what clients can expect on set.</p>
+      <p>Bookers skim, so keep it brief and specific. Mention any training (runway, acting, dance), special skills like swimming or horse riding, and whether you hold a valid passport.</p>
+      <p class="clients">Selected clients <span>/</span> Brand One <span>/</span> Magazine Two <span>/</span> Designer Three <span>/</span> Studio Four</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head"><h2>Book <em>Nilar</em></h2></div>
+    <div class="contact-grid">
+      <div class="card-c">
+        <h3>Email</h3>
+        <p class="big" id="email">hello@yourname.com</p>
+        <button class="copy" type="button" data-copy="email">Copy email</button>
+      </div>
+      <div class="card-c">
+        <h3>Agency</h3>
+        <p class="big">Agency Name</p>
+        <p>Booker name · booker@agency.com</p>
+      </div>
+      <div class="card-c">
+        <h3>Instagram</h3>
+        <p class="big"><a href="https://instagram.com/" rel="noopener">@yourhandle</a></p>
+        <p>Latest work and tests</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© 2026 Nilar</span><span>All images used with permission</span></div>
+</footer>
+
+<script>
+(function () {
+  // Portfolio filter
+  var btns = document.querySelectorAll('.filters button');
+  var items = document.querySelectorAll('.book .ph');
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.f;
+      btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      items.forEach(function (it) { it.hidden = !(f === 'all' || it.dataset.c === f); });
+    });
+  });
+
+  // cm / inch toggle
+  var cells = document.querySelectorAll('#stats dd[data-cm]');
+  function fmtIn(cm) { return (cm / 2.54).toFixed(cm > 120 ? 0 : 1) + '″'; }
+  function feet(cm) { var t = Math.round(cm / 2.54); return Math.floor(t / 12) + '′' + (t % 12) + '″'; }
+  function setUnits(u) {
+    document.getElementById('u-cm').setAttribute('aria-pressed', u === 'cm');
+    document.getElementById('u-in').setAttribute('aria-pressed', u === 'in');
+    cells.forEach(function (d) {
+      var cm = +d.dataset.cm, h = cm > 120;
+      if (u === 'cm') d.innerHTML = cm + ' cm' + (h ? '<small>' + feet(cm) + '</small>' : '');
+      else d.innerHTML = h ? feet(cm) + '<small>' + cm + ' cm</small>' : fmtIn(cm);
+    });
+  }
+  document.getElementById('u-cm').addEventListener('click', function () { setUnits('cm'); });
+  document.getElementById('u-in').addEventListener('click', function () { setUnits('in'); });
+
+  // Copy email
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.dataset.copy), text = el.textContent;
+      function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy email'; }, 1600); }
+      function fallback() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press copy'; }
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
