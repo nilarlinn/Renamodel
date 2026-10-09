@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Modelling portfolio: editorial, commercial and runway work, measurements and booking contacts.">
+<meta name="description" content="Rena, a Bangkok-based model from Myanmar. Portfolio, measurements and booking contacts.">
+<meta property="og:title" content="Rena · Model">
+<meta property="og:description" content="Bangkok-based model. Commercial, photoshoots, runway and collaborations.">
+<meta property="og:image" content="images/lead.jpg">
 <style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Rena Model Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,10 +97,17 @@ h2 em { color: var(--accent); }
 .filters button { font-family: var(--body); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 14px; border: 1px solid var(--rule); background: transparent; color: var(--ink-soft); cursor: pointer; }
 .filters button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
 .book { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
-.book .ph { margin: 0; grid-column: span 4; aspect-ratio: 3 / 4; transition: opacity .3s; }
-.book .ph.wide { grid-column: span 8; aspect-ratio: auto; }
-.book .ph.tall { grid-row: span 2; aspect-ratio: auto; }
-.book .ph[hidden] { display: none !important; }
+.book { grid-auto-flow: dense; }
+.shot { margin: 0; grid-column: span 4; aspect-ratio: 3 / 4; overflow: hidden; background: var(--paper-2); max-width: 100%; }
+.shot.land { grid-column: span 8; aspect-ratio: 3 / 2; }
+.shot button { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.shot button:hover img { transform: scale(1.03); }
+.hero-photo { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-2); max-width: 100%; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(12,11,11,.94); display: flex; align-items: center; justify-content: center; padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px)); }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lightbox button { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); right: 12px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #eeebe6; background: none; border: 1px solid rgba(238,235,230,.4); padding: 8px 12px; cursor: pointer; }
 
 /* About */
 .about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px, 5vw, 72px); }
@@ -124,8 +134,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   .stats .wrap { grid-template-columns: repeat(4, 1fr); }
   .stat:nth-child(5) { border-left: 0; padding-left: 0; }
   .stat:nth-child(n+5) { border-top: 1px solid var(--rule); }
-  .book .ph, .book .ph.wide { grid-column: span 6; aspect-ratio: 3 / 4; }
-  .book .ph.tall { grid-row: auto; }
+  .shot { grid-column: span 6; }
+  .shot.land { grid-column: span 12; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
@@ -133,7 +143,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   .stats .wrap { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(odd) { border-left: 0; padding-left: 0; }
   .stat:nth-child(n+3) { border-top: 1px solid var(--rule); }
-  .book .ph, .book .ph.wide { grid-column: span 12; }
 }
 @media (prefers-reduced-motion: no-preference) {
   h1 { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
@@ -157,28 +166,28 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 <header class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Model · <b>Available for bookings</b> · Yangon / Bangkok</p>
+      <p class="eyebrow">Model · <b>Available for bookings</b> · Bangkok</p>
       <h1>Rena</h1>
-      <p class="lede">Editorial, commercial and runway model. Calm in front of the lens, quick to take direction, and at home in both studio and location work.</p>
+      <p class="lede">Bangkok-based model from Mandalay, Myanmar. Open for commercial work, photoshoots, runway and creative collaborations.</p>
       <div class="hero-actions">
         <a class="btn solid" href="#contact">Book Rena</a>
         <a class="btn" href="#book">View portfolio</a>
       </div>
     </div>
-    <figure class="ph" style="margin:0"><figcaption><span>Lead image</span><span>4:5 portrait</span></figcaption></figure>
+    <figure class="hero-photo"><img src="images/lead.jpg" alt="Rena crouching in a black bodysuit and heels in a white studio" width="1103" height="1426"></figure>
   </div>
 </header>
 
 <div class="stats" aria-label="Measurements">
   <dl class="wrap" id="stats">
-    <div class="stat"><dt>Height</dt><dd data-cm="175">175 cm<small>5′9″</small></dd></div>
-    <div class="stat"><dt>Bust</dt><dd data-cm="82">82 cm</dd></div>
-    <div class="stat"><dt>Waist</dt><dd data-cm="61">61 cm</dd></div>
-    <div class="stat"><dt>Hips</dt><dd data-cm="89">89 cm</dd></div>
-    <div class="stat"><dt>Dress</dt><dd>EU 34<small>US 4</small></dd></div>
-    <div class="stat"><dt>Shoe</dt><dd>EU 39<small>US 8.5</small></dd></div>
+    <div class="stat"><dt>Height</dt><dd data-cm="165">165 cm<small>5′5″</small></dd></div>
+    <div class="stat"><dt>Bust</dt><dd data-cm="81" data-in="32″">81 cm</dd></div>
+    <div class="stat"><dt>Waist</dt><dd data-cm="61" data-in="24″">61 cm</dd></div>
+    <div class="stat"><dt>Hips</dt><dd data-cm="91" data-in="36″">91 cm</dd></div>
+    <div class="stat"><dt>Dress</dt><dd>M</dd></div>
+    <div class="stat"><dt>Shoe</dt><dd>EU 38<small>US 7.5</small></dd></div>
     <div class="stat"><dt>Hair</dt><dd>Black</dd></div>
-    <div class="stat"><dt>Eyes</dt><dd>Dark brown</dd></div>
+    <div class="stat"><dt>Eyes</dt><dd>Black</dd></div>
   </dl>
 </div>
 <div class="wrap units" role="group" aria-label="Units">
@@ -192,23 +201,24 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <h2>The <em>book</em></h2>
       <div class="filters" role="group" aria-label="Filter portfolio">
         <button type="button" data-f="all" aria-pressed="true">All</button>
-        <button type="button" data-f="editorial" aria-pressed="false">Editorial</button>
-        <button type="button" data-f="commercial" aria-pressed="false">Commercial</button>
+        <button type="button" data-f="studio" aria-pressed="false">Studio</button>
+        <button type="button" data-f="location" aria-pressed="false">Location</button>
         <button type="button" data-f="runway" aria-pressed="false">Runway</button>
-        <button type="button" data-f="digitals" aria-pressed="false">Digitals</button>
       </div>
     </div>
     <div class="book">
-      <figure class="ph tall" data-c="editorial"><figcaption><span>Editorial · 01</span><span>Magazine</span></figcaption></figure>
-      <figure class="ph" data-c="commercial"><figcaption><span>Commercial · 02</span><span>Beauty</span></figcaption></figure>
-      <figure class="ph" data-c="runway"><figcaption><span>Runway · 03</span><span>Show</span></figcaption></figure>
-      <figure class="ph wide" data-c="editorial"><figcaption><span>Editorial · 04</span><span>Landscape spread</span></figcaption></figure>
-      <figure class="ph" data-c="digitals"><figcaption><span>Digitals · 05</span><span>Front, no makeup</span></figcaption></figure>
-      <figure class="ph" data-c="digitals"><figcaption><span>Digitals · 06</span><span>Profile</span></figcaption></figure>
-      <figure class="ph" data-c="commercial"><figcaption><span>Commercial · 07</span><span>Campaign</span></figcaption></figure>
-      <figure class="ph" data-c="runway"><figcaption><span>Runway · 08</span><span>Backstage</span></figcaption></figure>
-      <figure class="ph" data-c="digitals"><figcaption><span>Digitals · 09</span><span>Full length</span></figcaption></figure>
-      <figure class="ph" data-c="editorial"><figcaption><span>Editorial · 10</span><span>Location</span></figcaption></figure>
+      <figure class="shot land" data-c="studio"><button type="button" aria-label="View larger"><img src="images/studio-hair.jpg" alt="Rena with hands in her hair, lit by a single beam of light" loading="lazy"></button></figure>
+      <figure class="shot" data-c="location"><button type="button" aria-label="View larger"><img src="images/garden.jpg" alt="Rena reaching upward in a black strapless top outside a white house" loading="lazy"></button></figure>
+      <figure class="shot" data-c="location"><button type="button" aria-label="View larger"><img src="images/blue-stairs.jpg" alt="Rena in a cobalt satin shirt seated on concrete stairs" loading="lazy"></button></figure>
+      <figure class="shot" data-c="studio"><button type="button" aria-label="View larger"><img src="images/red-lip.jpg" alt="Rena in a black halter dress with red lips and wet-look hair" loading="lazy"></button></figure>
+      <figure class="shot" data-c="runway"><button type="button" aria-label="View larger"><img src="images/runway.jpg" alt="Rena walking a runway in a mustard and magenta printed dress with a fascinator" loading="lazy"></button></figure>
+      <figure class="shot" data-c="location"><button type="button" aria-label="View larger"><img src="images/stairs-floral.jpg" alt="Rena in a black floral dress by an outdoor staircase" loading="lazy"></button></figure>
+      <figure class="shot land" data-c="studio"><button type="button" aria-label="View larger"><img src="images/studio-floor.jpg" alt="Rena lying on the studio floor in a black bodysuit and tights" loading="lazy"></button></figure>
+      <figure class="shot" data-c="location"><button type="button" aria-label="View larger"><img src="images/train.jpg" alt="Rena in a black coat and sunglasses inside a train carriage" loading="lazy"></button></figure>
+      <figure class="shot" data-c="studio"><button type="button" aria-label="View larger"><img src="images/studio-box.jpg" alt="Rena kneeling beside a white plinth in a black bodysuit" loading="lazy"></button></figure>
+      <figure class="shot" data-c="location"><button type="button" aria-label="View larger"><img src="images/blue-shadow.jpg" alt="Rena in a cobalt shirt and yellow skirt against a concrete wall with her shadow" loading="lazy"></button></figure>
+      <figure class="shot" data-c="location"><button type="button" aria-label="View larger"><img src="images/profile-floral.jpg" alt="Rena in profile with her arm over her head among tropical plants" loading="lazy"></button></figure>
+      <figure class="shot land" data-c="location"><button type="button" aria-label="View larger"><img src="images/floral-overhead.jpg" alt="Rena photographed from above lying on wooden steps in a floral dress" loading="lazy"></button></figure>
     </div>
   </div>
 </section>
@@ -218,16 +228,17 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div>
       <h2>About</h2>
       <dl class="facts">
-        <dt>Based</dt><dd>Yangon, Myanmar</dd>
-        <dt>Travels</dt><dd>Bangkok · Singapore · Worldwide</dd>
+        <dt>Based</dt><dd>Bangkok, Thailand</dd>
+        <dt>From</dt><dd>Mandalay, Myanmar</dd>
+        <dt>Travels</dt><dd>Anywhere</dd>
         <dt>Languages</dt><dd>Burmese, English</dd>
         <dt>Passport</dt><dd>Valid, ready to travel</dd>
       </dl>
     </div>
     <div>
-      <p>Write two or three short paragraphs here in your own voice: how you started modelling, the kind of work you love, and what clients can expect on set.</p>
-      <p>Bookers skim, so keep it brief and specific. Mention any training (runway, acting, dance), special skills like swimming or horse riding, and whether you hold a valid passport.</p>
-      <p class="clients">Selected clients <span>/</span> Brand One <span>/</span> Magazine Two <span>/</span> Designer Three <span>/</span> Studio Four</p>
+      <p>I'm Rena, a 25-year-old model from Mandalay, Myanmar, now living and working in Bangkok.</p>
+      <p>I shoot in the studio and on location, and I walk runway. I'm open to commercial bookings, photoshoots, runway shows and creative collaborations, and I'm happy to travel for the right project.</p>
+      <p>The quickest way to reach me is by email or a message on Instagram.</p>
     </div>
   </div>
 </section>
@@ -238,17 +249,17 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="contact-grid">
       <div class="card-c">
         <h3>Email</h3>
-        <p class="big" id="email">hello@yourname.com</p>
+        <p class="big" id="email">renora.asteria@gmail.com</p>
         <button class="copy" type="button" data-copy="email">Copy email</button>
       </div>
       <div class="card-c">
-        <h3>Agency</h3>
-        <p class="big">Agency Name</p>
-        <p>Booker name · booker@agency.com</p>
+        <h3>Representation</h3>
+        <p class="big">Independent</p>
+        <p>Book directly by email or Instagram</p>
       </div>
       <div class="card-c">
         <h3>Instagram</h3>
-        <p class="big"><a href="https://instagram.com/" rel="noopener">@yourhandle</a></p>
+        <p class="big"><a href="https://www.instagram.com/renora_asteria/" rel="noopener">@renora_asteria</a></p>
         <p>Latest work and tests</p>
       </div>
     </div>
@@ -256,14 +267,26 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 </section>
 
 <footer>
-  <div class="wrap"><span>© 2026 Rena</span><span>All images used with permission</span></div>
+  <div class="wrap"><span>© 2026 Rena</span><span>Bangkok · Available worldwide</span></div>
 </footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo"><img id="lb-img" alt=""><button type="button" id="lb-close">Close</button></div>
 
 <script>
 (function () {
   // Portfolio filter
   var btns = document.querySelectorAll('.filters button');
-  var items = document.querySelectorAll('.book .ph');
+  var items = document.querySelectorAll('.book .shot');
+
+  // Lightbox
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lb-img'), lastBtn = null;
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); if (lastBtn) lastBtn.focus(); }
+  document.querySelectorAll('.shot button').forEach(function (b) {
+    b.addEventListener('click', function () { var im = b.querySelector('img'); lastBtn = b; lbImg.src = im.src; lbImg.alt = im.alt; lb.hidden = false; document.getElementById('lb-close').focus(); });
+  });
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLb(); });
   btns.forEach(function (b) {
     b.addEventListener('click', function () {
       var f = b.dataset.f;
@@ -282,7 +305,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     cells.forEach(function (d) {
       var cm = +d.dataset.cm, h = cm > 120;
       if (u === 'cm') d.innerHTML = cm + ' cm' + (h ? '<small>' + feet(cm) + '</small>' : '');
-      else d.innerHTML = h ? feet(cm) + '<small>' + cm + ' cm</small>' : fmtIn(cm);
+      else d.innerHTML = h ? feet(cm) + '<small>' + cm + ' cm</small>' : (d.dataset.in || fmtIn(cm));
     });
   }
   document.getElementById('u-cm').addEventListener('click', function () { setUnits('cm'); });
